@@ -28,6 +28,8 @@ import Best from "../components/BestQuality";
 import Top from "../components/TopProducts";
 import TravelEssential from "../components/TravelEssentails";
 import CustomButton from "../components/CustomButton";
+import SponsoredProduct from "../components/SponsoredProduct";
+import SuggestedForYou from "../components/SuggestedForYou";
 
 const HomeScreen = ({ navigation }) => {
 
@@ -40,9 +42,14 @@ const HomeScreen = ({ navigation }) => {
     { type: "Sponsored" },
     { type: "BestQuality" },
     { type: "RecentStores" },
+    { type: "SponsoredProduct" },
     { type: "TopProduct" },
+    { type: "SuggestedForYou" },
+    { type: "SponsoredProduct1" },
+    { type: "TopProduct1" },
     { type: "PeopleAlsoViewed" },
     { type: "RecentStores" },
+    { type: "SuggestedForYou1" },
   ];
 
   const renderMainItem = ({ item, index }) => {
@@ -68,13 +75,69 @@ const HomeScreen = ({ navigation }) => {
         </View>
       );
     }
+    if (item.type === "SponsoredProduct"){
+      return(
+        <View style={{width:"100%"}}>
+           <View style={{paddingVertical:15,paddingLeft:10}}>
+             <Text style={{fontWeight:"bold",fontSize:15}}>Sponosored Product</Text>
+           </View>
+           <SponsoredProduct
+            largeImage = {require('../../assets/SponosorProduct/sponsorLarge.png')}
+            smallImage1 = {require('../../assets/SponosorProduct/sponsorSmall1.png')}
+            smallImage2 ={require('../../assets/SponosorProduct/sponsorSmall1.png')}
+           />
+        </View>
+      )
+    }
     if (item.type === "TopProduct") {
       return (
         <View key={index}>
-          <Top />
+          <Top 
+           title={'Top product'}
+          />
         </View>
       );
     }
+
+    if(item.type == 'SuggestedForYou'){
+      return(
+        <View>
+          <SuggestedForYou
+          title={'Suggested For You'}
+          />
+        </View>
+      )
+    }
+
+    if (item.type === "SponsoredProduct1"){
+      return(
+        <View style={{width:"100%"}}>
+           <View style={{paddingVertical:15,paddingLeft:10}}>
+             <Text style={{fontWeight:"bold",fontSize:15}}>Sponosored Product</Text>
+           </View>
+           <SponsoredProduct
+            largeImage = {require('../../assets/SponosorProduct/sponsorLarge.png')}
+            smallImage1 = {require('../../assets/SponosorProduct/sponsorS1.png')}
+            smallImage2 ={require('../../assets/SponosorProduct/sponsorS2.png')}
+           />
+        </View>
+      )
+    }
+
+
+    if (item.type === "TopProduct1") {
+      return (
+        <View key={index}>
+          <Top 
+          title={'Shop for a cool summer'}
+          style={{backgroundColor:'#FFD580'}}
+
+          />
+        </View>
+      );
+    }
+
+
 
     if (item.type === "TravelEssential") {
       return (
@@ -113,6 +176,15 @@ const HomeScreen = ({ navigation }) => {
         </View>
       );
     }
+    if(item.type == 'SuggestedForYou1'){
+      return(
+        <View>
+          <SuggestedForYou
+          title={"On Everybody's list "}
+          />
+        </View>
+      )
+    }
   };
 
   const keyExtractor = (item, index) => index.toString();
@@ -134,12 +206,8 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
-  const listTab = [{ status: 'Bulk Buddy' }, { status: 'Prime Partner' }]
 
 
-  const filter = (value) => {
-    console.log(value)
-  }
   return (
     <SafeAreaView style={styles.container}>
       {/* <View style={[styles.row]}>

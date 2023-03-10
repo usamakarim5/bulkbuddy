@@ -55,7 +55,7 @@ const data = [
   },
 ];
 
-const Top = () => {
+const Top = ({title,style}) => {
   return (
     <>
       <View style={styles.horizontalCard}>
@@ -76,7 +76,7 @@ const Top = () => {
           />
         </View>
       </View>
-      <View style={styles.container}>
+      <View style={[styles.container,style]}>
         <Spacer />
         <View
           style={{
@@ -87,7 +87,7 @@ const Top = () => {
           }}
         >
           
-          <Text style={styles.heading}>Top Products</Text>
+          <Text style={styles.heading}>{title}</Text>
           <View style={{ backgroundColor: "blue", borderRadius: 20,alignItems:"center",justifyContent:"center",height:25,width:25}}>
           <AntDesign
             name="right"
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   horizontalCardImage: {
-    height: hp("25"),
+    height: hp("28"),
     width: wp("44"),
     margin: hp("1"),
   },
