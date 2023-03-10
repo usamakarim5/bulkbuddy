@@ -37,6 +37,7 @@ const BottomTab = () => {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialCommunityIcons
               name="view-grid-outline"

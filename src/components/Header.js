@@ -1,8 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Colors from "../../assets/Colors";
+
 const Header = ({ headerTitle }) => {
   const size = 20;
   const color = Colors.black;
@@ -25,20 +27,19 @@ const Header = ({ headerTitle }) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
-    // backgroundColor: Colors.fadedgray,
     padding: 10,
-    backgroundColor:Colors.white
+    backgroundColor: Colors.white,
   },
   headerTitle: {
     color: Colors.black,
     fontSize: 18,
     fontWeight: "500",
     lineHeight: 21,
-    alignSelf:'center'
   },
   icon: {
     marginLeft: 5,
-    marginRight:'35%'
+    marginRight: "3%",
+    fontSize: hp("2"),
   },
 });
 

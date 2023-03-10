@@ -27,7 +27,10 @@ const imageList = [
   // add more images as needed
 ];
 
+
 const MySwiper = () => {
+
+ 
   return (
     <View style={styles.container}>
       <Swiper
@@ -37,6 +40,8 @@ const MySwiper = () => {
         activeDotStyle={{ marginBottom: -wp("2%") }}
         dotStyle={{ backgroundColor: "grey", marginBottom: -wp("2%") }}
         style={styles.swiper}
+        dot={<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 15, height: 5,borderRadius: 4, marginLeft: 10, marginBottom: -13}} />}
+        activeDot={<View style={{backgroundColor: '#fff', width: 15, height: 5, borderRadius: 4, marginLeft: 10, marginRight: 3, marginBottom: -13,}} />}
       >
         {imageList.map((item, index) => (
           <View key={index}>

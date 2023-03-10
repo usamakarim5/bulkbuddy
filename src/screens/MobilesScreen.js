@@ -88,7 +88,7 @@ const Mobiles = ({ navigation }) => {
     if (item.type === "HorizontalList") {
       return (
         <View style={styles.list}>
-          <Spacer />
+          {/* <Spacer /> */}
           <HorizontalMobile />
         </View>
       );

@@ -1,12 +1,13 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, FlatList } from "react-native";
-import Colors from "../../assets/Colors";
+import { View, Text, StyleSheet } from "react-native";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+
 import Spacer from "./Spacer";
-import Divider from "./Divider";
+import SponsorImages from "./SponsorImages";
 const data = [
   {
     id: 1,
@@ -63,78 +64,26 @@ const Sponsored = () => {
 
       <View style={styles.border}>
         <View style={styles.card}>
-          <Image
-            source={require("../../assets/sponsor/IMG_1635.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
-          <Image
-            source={require("../../assets/sponsor/IMG_1636.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
-          <Image
-            source={require("../../assets/sponsor/IMG_1637.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1635.jpg")} />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1636.jpg")} />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1637.jpg")} />
         </View>
 
         <View style={styles.card}>
-          <Image
-            source={require("../../assets/sponsor/IMG_1638.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
-          <Image
-            source={require("../../assets/sponsor/IMG_1639.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
-          <Image
-            source={require("../../assets/sponsor/IMG_1640.jpg")}
-            style={{
-              height: hp("16"),
-              width: wp("32"),
-            }}
-          />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1638.jpg")} />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1639.jpg")} />
+          <SponsorImages imgPath={require("../../assets/sponsor/IMG_1640.jpg")} />
         </View>
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
-  container: {},
   heading: {
-    fontSize: hp("2.2"),
-    fontWeight: "500",
+    fontSize: 15,
+    fontWeight: '700',
     marginLeft: wp("4%"),
-  },
-
-  image: {
-    height: hp("10%"),
-    width: wp("50"),
-    resizeMode: "contain",
-  },
-  item: {
-    fontSize: hp("1.5"),
-    fontWeight: "400",
-  },
-  imageCard: {
-    height: hp("15"),
-    width: wp("30"),
-    resizeMode: "cover",
-    borderRadius: 10,
+    marginBottom: 5
   },
   card: {
     flexDirection: "row",
@@ -147,7 +96,11 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(0,0,0,0.1)",
     borderBottomWidth: 4,
   },
-  border: {},
+  imgStyle: {
+    height: hp("19"),
+    width: wp("32"),
+  }
+
 });
 
 export default Sponsored;

@@ -30,7 +30,7 @@ const AccountScreen = ({ navigation }) => {
 
       <View style={styles.header}>
         <Text style={styles.name}>Hey!</Text>
-        <Text style={styles.name}> Maryam Khan</Text>
+        <Text style={styles.name}> Aqdas Ilyas</Text>
       </View>
 
       <Divider />

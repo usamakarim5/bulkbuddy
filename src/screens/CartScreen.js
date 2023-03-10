@@ -3,24 +3,18 @@ import {
   Text,
   View,
   StyleSheet,
-  FlatList,
-  Image,
-
-  TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import RecentStores from "../components/RecentStores";
-import Sponsored from "../components/Sponsored";
 import Colors from "../../assets/Colors";
-import Searchbar from "../components/Searchbar";
-import MySwiper from "../components/Swipper";
 import EmptyCart from "./EmptyCartScreen";
-import Divider from "../components/Divider";
 import Header from "../components/Header";
-import Cart from "../components/CartList";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
+
 export default function CartScreen(props) {
-  const [isOn, setIsOn] = useState(false);
+
   const [data, setData] = useState([
     { type: "empty" },
     { type: "Divider" },
@@ -67,13 +61,71 @@ export default function CartScreen(props) {
   return (
     <SafeAreaView style={styles.container}>
       <Header headerTitle="My Cart" />
+      {/* <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          marginTop: wp("5"),
+        }}
+      >
+        <TouchableOpacity onPress={() => setBottomCOlorSTate("left")}>
+          <Text
+            style={{
+              color: Colors.black,
+              fontSize: hp("2"),
+              fontWeight: "500",
+            }}
+          >
+            Flipkart
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setBottomCOlorSTate("right")}>
+          <Text
+            style={{
+              color: Colors.black,
+              fontSize: hp("2"),
+              fontWeight: "500",
+            }}
+          >
+            Grocery
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          marginTop: wp("2"),
+          justifyContent: "space-evenly",
+        }}
+      >
+        <View
+          style={{
+            borderBottomColor: "blue",
+            borderBottomWidth: bottomColorState == "left" ? 2 : 0,
+            height: wp("5"),
+            width: wp("50"),
+          }}
+        />
+
+        <View
+          style={{
+            borderBottomColor: "blue",
+            borderBottomWidth: bottomColorState == "right" ? 2 : 0,
+            height: wp("5"),
+            width: wp("50"),
+          }}
+        />
+      </View> */}
       {/* <FlatList
         extraData={data}
         data={data}
         keyExtractor={keyExtractor}
         renderItem={renderMainItem}
       /> */}
-      {/* <EmptyCart/> */}
+      <EmptyCart/>
       {/* <Cart/> */}
     </SafeAreaView>
   );

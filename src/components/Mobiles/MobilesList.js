@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     // backgroundColor: "pink",
-    height: "60%",
+    // height: "60%",
     width: "100%",
   },
   listContainer: {

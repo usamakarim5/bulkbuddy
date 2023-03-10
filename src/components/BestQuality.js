@@ -6,6 +6,8 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Spacer from "./Spacer";
+import AntDesign from "react-native-vector-icons/AntDesign";
+
 const data = [
   {
     id: 1,
@@ -57,7 +59,26 @@ const Best = () => {
   return (
     <View style={styles.container}>
       <Spacer />
-      <Text style={styles.heading}>Best Quality</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginHorizontal: wp("4%"),
+        }}
+      >
+        <Text style={styles.heading}>Best Quality</Text>
+        <View style={{ backgroundColor: "blue", borderRadius: 20,alignItems:"center",justifyContent:"center",height:25,width:25}}>
+          <AntDesign
+            name="right"
+            size={13}
+            color={'#fff'}
+            style={{
+              marginLeft:1
+            }}
+          />
+        </View>
+      </View>
       <Spacer />
       <FlatList
         showsHorizontalScrollIndicator={false}
@@ -98,9 +119,8 @@ const styles = StyleSheet.create({
     // marginTop: hp("3"),
   },
   heading: {
-    fontSize: hp("2.2"),
-    fontWeight: "500",
-    marginLeft: wp("4%"),
+    fontWeight: "700",
+    fontSize:15
   },
   card: {
     borderRadius: hp("1"),
