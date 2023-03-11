@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -8,21 +8,47 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../../assets/Colors";
 
 const NotificationScreen = () => {
+  const [isLogIn, setIsLogIn] = useState(true)
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.headerTitle}>
-        Notifications
-      </Text>
-      <View style={styles.contentSection}>
-        <Text style={styles.contentTile}>You're missing out.</Text>
-        <Text style={styles.contentSubText} >
-          Sign in to view personalised notification and offers
+    <View style={styles.container}>
+      <View style={{ backgroundColor: '#2874F0', paddingTop: Platform.OS === 'ios' ? 50 : 40 }}>
+        <Text style={styles.headerTitle}>
+          Notifications(2)
         </Text>
-        <TouchableOpacity style={styles.signInBtn}>
-          <Text style={{ color: "white" }}>Sign In</Text>
-        </TouchableOpacity>
       </View>
-    </SafeAreaView>
+      {
+        isLogIn ?
+          <TouchableOpacity style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 10, paddingHorizontal: 10, borderBottomWidth: 1, borderBottomColor: '#00000020' }}>
+            <View style={{ flexDirection: "row" }} >
+              <View style={{ height: 15, width: 15, backgroundColor: "blue", borderRadius: 50 }} />
+              <View style={{ width: "80%", marginLeft: 10 }}>
+                <Text style={{ fontWeight: "bold" }}>
+                  Atta. Rice ,Oil..Upto 50% off!
+                </Text>
+                <Text style={{ fontSize: 12, color: "#00000090" }}>
+                  No min.order value! Avail Free Shipping on {'\n'}
+                  order Value of min.$600! Shop Now
+                </Text>
+                <Text
+                  style={{ fontSize: 10, color: "#00000060", marginVertical: 10 ,}}
+                >2 days ago</Text>
+              </View>
+            </View>
+
+            <Image style={{ height: 45, width: 45 }} source={require('../../assets/logo1.png')} />
+          </TouchableOpacity>
+          
+          :
+          <View style={styles.contentSection}>
+            <Text style={styles.contentTile}>You're missing out.</Text>
+            <Text style={styles.contentSubText} >
+              Sign in to view personalised notification and offers
+            </Text>
+            <TouchableOpacity style={styles.signInBtn} onPress={() => setIsLogIn(true)}>
+              <Text style={{ color: "white" }}>Sign In</Text>
+            </TouchableOpacity>
+          </View>}
+    </View>
   );
 };
 
@@ -32,27 +58,30 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   headerTitle: {
-    marginHorizontal: wp("5"),
-    fontSize: hp("2.2")
+    fontSize: hp("2.2"),
+    paddingHorizontal: wp("3"),
+    color: "#fff",
+    fontWeight: '600',
+    paddingBottom: 10
   },
   contentSection: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
-  contentTile:{
+  contentTile: {
     marginVertical: wp("1"),
     width: wp("50"),
     textAlign: "center",
     color: "grey",
   },
-  contentSubText:{
+  contentSubText: {
     marginVertical: wp("1"),
     width: wp("50"),
     textAlign: "center",
     color: "grey",
   },
-  signInBtn:{
+  signInBtn: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "blue",
