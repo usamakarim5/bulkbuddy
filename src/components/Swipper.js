@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, StyleSheet, Dimensions } from "react-native";
 import Swiper from "react-native-swiper";
-import Spacer from "./Spacer";
 const { height: screenHeight } = Dimensions.get("window");
 import {
   widthPercentageToDP as wp,
@@ -10,20 +9,15 @@ import {
 
 const imageList = [
   {
-    srcc: require("../../assets/image/IMG_1629.jpg"),
+    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1682.png"),
+  }, 
+   {
+    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1683.png"),
+  }, 
+   {
+    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1684.png"),
   },
-  {
-    srcc: require("../../assets/image/IMG_1631.jpg"),
-  },
-  {
-    srcc: require("../../assets/image/IMG_1651.jpg"),
-  },
-  {
-    srcc: require("../../assets/image/IMG_1659.jpg"),
-  },
-  {
-    srcc: require("../../assets/image/IMG_1667.jpg"),
-  },
+ 
   // add more images as needed
 ];
 

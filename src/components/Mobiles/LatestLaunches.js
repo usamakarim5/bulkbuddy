@@ -1,60 +1,105 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import Colors from "../../../assets/Colors";
-import Spacer from "../Spacer";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
 
-const Launches = () => {
+const Launches = ({ titleImage, FirstLargeImage, card1, card2, launchedImages, launchedImages1, largeImageHeight, largeImageExtra1, largeImageExtra2 }) => {
+
+  const data = [
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1694.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1695.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1696.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1697.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1698.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1699.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1700.png')
+    },
+
+  ]
+
+
+  const upComming = [
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1694.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1695.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1696.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1697.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1698.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1699.png')
+    },
+    {
+      imgPath: require('../../../assets/images/Mobiles/MobileImages_2/IMG_1700.png')
+    },
+
+  ]
+
+  const renderItem = ({ item, index }) => {
+    return (
+      <TouchableOpacity style={{}}>
+        <Image style={{ width: 150, height: 150 }} resizeMode={'contain'} source={item.imgPath} />
+      </TouchableOpacity>
+    )
+  }
   return (
-    <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Text style={styles.heading}>Latest Launches</Text>
-        <Text style={styles.text}>Top Brands, Latest Technology</Text>
+    <View style={{ flex: 1 }}>
+      <Image style={{ width: '100%', height: 80 }} resizeMode={'contain'} source={titleImage} />
+      <Image style={{ width: '100%', height: largeImageHeight }} resizeMode={'contain'} source={FirstLargeImage} />
+      <View style={{ flexDirection: "row", width: "100%" }}>
+        <Image style={{ width: '50%', height: 240 }} resizeMode={'contain'} source={card1} />
+        <Image style={{ width: '50%', height: 240 }} resizeMode={'contain'} source={card2} />
       </View>
-      <View style={styles.imageContainer}>
-        <Image
-          style={{ width: "100%", height: "95%", resizeMode: "cover" }}
-          source={{
-            uri: "https://img.freepik.com/free-photo/blue-sport-sedan-parked-yard_114579-5078.jpg?size=626&ext=jpg&uid=R94214209&ga=GA1.2.1081558094.1677063520&semt=sph",
-          }}
+
+      {
+        launchedImages &&
+        <FlatList
+          horizontal
+          data={data}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={renderItem}
+          showsHorizontalScrollIndicator={false}
         />
-      </View>
+      }
+
+      {
+        launchedImages1 &&
+        <View>
+          <Image style={{ width: '100%', height: 180 }} resizeMode={'contain'} source={largeImageExtra1} />
+          <Image style={{ width: '100%', height: 180 }} resizeMode={'contain'} source={largeImageExtra2} />
+
+          <View style={{ flexDirection: "row", width: "100%" }}>
+            <Image style={{ width: '50%', height: 240 }} resizeMode={'contain'} source={card1} />
+            <Image style={{ width: '50%', height: 240 }} resizeMode={'contain'} source={card2} />
+          </View>
+        </View>
+
+      }
+
+
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  container: {
-    height: hp("30"),
-    width: wp("100"),
-    // backgroundColor: Colors.blue,
-    marginBottom: hp("3"),
-  },
-  textContainer: {
-    backgroundColor: Colors.white,
-    // backgroundColor: "pink",
-    paddingVertical: hp("2"),
-    paddingHorizontal: hp("1"),
-  },
-  imageContainer: {
-    width: wp("100%"),
-    height: hp("25"),
-    // backgroundColor: "pink",
-    // margin:hp('3'),
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  heading: {
-    fontSize: hp("3"),
-    fontWeight: "700",
-  },
-  text: {
-    fontSize: hp("1.8"),
-  },
-});
+export default Launches
 
-export default Launches;
+const styles = StyleSheet.create({})

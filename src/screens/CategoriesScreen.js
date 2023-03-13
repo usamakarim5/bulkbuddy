@@ -31,7 +31,9 @@ const CategoryScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.rounded}>
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("Mobiles")}
+        >
           <Image
             style={styles.image}
             source={require("../../assets/Category/IMG_2055.jpg")}
@@ -45,7 +47,7 @@ const CategoryScreen = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.rounded}
-          onPress={() => navigation.navigate("Mobiles")}
+          onPress={() =>{}}
         >
           <Image
             style={styles.image}

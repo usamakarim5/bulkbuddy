@@ -5,7 +5,7 @@ import {
   StyleSheet,
   FlatList,
   Image,
-//   SafeAreaView,
+  //   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
 import {
@@ -31,6 +31,8 @@ import TopPicks from "../components/Mobiles/TopPicks";
 import Launches from "../components/Mobiles/LatestLaunches";
 import SamsungList from "../components/Mobiles/SamsungList";
 import Grab from "../components/Mobiles/GrabList";
+import UpCommingLaunches from "../components/Mobiles/UpCommingLaunches";
+import BestSelling from "../components/Mobiles/BestSelling";
 const Mobiles = ({ navigation }) => {
   const [isOn, setIsOn] = useState(false);
 
@@ -42,53 +44,32 @@ const Mobiles = ({ navigation }) => {
     { type: "swiper" },
     { type: "HorizontalList" },
     { type: "LatestLaunches" },
+    { type: "UpCommingLaunches" },
+    { type: "LatestLaunches1" },
+    { type: "BestSelling" },
     { type: "SamsungList" },
     { type: "image" },
     { type: "Grab" },
-    // { type: "TopPicks" },
-    // { type: "RecentStores" },
-    // { type: "TopProduct" },
-    // { type: "PeopleAlsoViewed" },
-    // { type: "RecentStores" },
   ];
 
   const renderMainItem = ({ item }) => {
-    // if (item.type === "row") {
-    //   return (
-    //     <View style={styles.mainItem}>
-    //       <Text>{item.text}</Text>
-    //     </View>
-    //   );
-    // }
-
-    if (item.type === "image") {
+    if (item.type === "MobileList") {
       return (
-        <View style={styles.list}>
-          <ImageContainer />
+        <View style={[styles.list]}>
+          <MobileList />
         </View>
       );
     }
     if (item.type === "swiper") {
       return (
-        <View style={styles.swiper}>
+        <View style={[styles.swiper]}>
           <MySwiper />
-          {/* <Spacer/> */}
-        </View>
-      );
-    }
-    if (item.type === "MobileList") {
-      return (
-        <View style={styles.list}>
-          {/* <Text style={styles.label}>Recently Viewed Stores</Text> */}
-          <MobileList />
-          {/* <Spacer /> */}
         </View>
       );
     }
     if (item.type === "HorizontalList") {
       return (
-        <View style={styles.list}>
-          {/* <Spacer /> */}
+        <View style={[styles.list]}>
           <HorizontalMobile />
         </View>
       );
@@ -96,26 +77,60 @@ const Mobiles = ({ navigation }) => {
     if (item.type === "LatestLaunches") {
       return (
         <View style={styles.list}>
-          {/* <Spacer /> */}
-          <Launches />
+          <Launches
+            titleImage={require('../../assets/images/Mobiles/MobileImages_1/IMG_1688.png')}
+            FirstLargeImage={require('../../assets/images/Mobiles/MobileImages_1/IMG_1689.png')}
+            largeImageHeight={180}
+
+            card1={require('../../assets/images/Mobiles/MobileImages_1/IMG_1690.png')}
+            card2={require('../../assets/images/Mobiles/MobileImages_1/IMG_1691.png')}
+            launchedImages={true}
+          />
         </View>
       );
     }
-    if (item.type === "SamsungList") {
+    if (item.type === "UpCommingLaunches") {
       return (
         <View style={styles.list}>
-          <Spacer />
-          <SamsungList />
+          <UpCommingLaunches />
         </View>
       );
     }
-    if (item.type === "Grab") {
+
+    if (item.type === "LatestLaunches1") {
       return (
         <View style={styles.list}>
-          <Grab />
+          <Launches
+            titleImage ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1703.png') }
+            FirstLargeImage ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1704.png') }
+            largeImageHeight={300}
+            card1 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1705.png') }
+            card2 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1706.png') }
+            launchedImages1={true}
+            largeImageExtra1={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1707.png') } 
+            largeImageExtra2={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1708.png') }
+            cardExtra1 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1709.png') }
+            cardExtra2 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1710.png') }
+          />
         </View>
       );
     }
+
+
+    if (item.type === "BestSelling") {
+      return (
+        <View style={styles.list}>
+          <BestSelling/>
+        </View>
+      );
+    }
+    // if (item.type === "Grab") {
+    //   return (
+    //     <View style={styles.list}>
+    //       <Grab />
+    //     </View>
+    //   );
+    // }
     if (item.type === "TopPicks") {
       return (
         <View style={styles.list}>
@@ -130,39 +145,12 @@ const Mobiles = ({ navigation }) => {
         </View>
       );
     }
-    // if (item.type === "PeopleAlsoViewed") {
-    //   return (
-    //     <View>
-    //       <Spacer />
-    //       <Text style={styles.label}>People Also Viewed</Text>
-    //       <Spacer />
-    //       <Sponsored />
-    //       <Spacer />
-    //     </View>
-    //   );
-    // }
-    // if (item.type === "RecentStores") {
-    //   return (
-    //     <View style={styles.list}>
-    //       <Text style={styles.label}>Recently Viewed Stores</Text>
-    //       <RecentStores />
-    //       <Spacer />
-    //     </View>
-    //   );
-    // }
   };
 
   const keyExtractor = (item, index) => index.toString();
 
-  const renderHorizontalItem = ({ item }) => {
-    return (
-      <View style={styles.horizontalItem}>
-        <Text>{item}</Text>
-      </View>
-    );
-  };
 
-  // render() {
+
   const clearOnboarding = async () => {
     try {
       await AsyncStorage.removeItem("@viewedOnboarding");
@@ -179,6 +167,7 @@ const Mobiles = ({ navigation }) => {
         keyExtractor={keyExtractor}
         renderItem={renderMainItem}
         nestedScrollEnabled={true}
+        showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
   );
@@ -211,6 +200,7 @@ const styles = StyleSheet.create({
     // margin: hp("1%"),
     // backgroundColor: "red",
     // marginBottom: "20%",
+    // backgroundColor:"red"
   },
   swiper: {
     height: hp("20"),

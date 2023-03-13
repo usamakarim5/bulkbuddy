@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -9,6 +9,45 @@ import Colors from "../../assets/Colors";
 
 const NotificationScreen = () => {
   const [isLogIn, setIsLogIn] = useState(true)
+
+  const data=[
+    {
+      Title:'Atta. Rice ,Oil..Upto 50% off!',
+      days:3
+    },
+    {
+      Title:'Atta. Rice ,Oil..Upto 50% off!',
+      days:2
+    },
+    {
+      Title:'Atta. Rice ,Oil..Upto 50% off!',
+      days:9
+    },
+  ]
+
+  const renderItem = ({item,index}) => {
+    return (
+      <TouchableOpacity style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 10, paddingHorizontal: 10, borderBottomWidth: 1, borderBottomColor: '#00000020' }}>
+        <View style={{ flexDirection: "row" }} >
+          <View style={{ height: 15, width: 15, backgroundColor: "blue", borderRadius: 50 }} />
+          <View style={{ width: "80%", marginLeft: 10 }}>
+            <Text style={{ fontWeight: "bold" }}>
+              {item.Title}
+            </Text>
+            <Text style={{ fontSize: 12, color: "#00000090" }}>
+              No min.order value! Avail Free Shipping on {'\n'}
+              order Value of min.$600! Shop Now
+            </Text>
+            <Text
+              style={{ fontSize: 10, color: "#00000060", marginVertical: 10, }}
+            >{`${item.days} ago`}</Text>
+          </View>
+        </View>
+
+        <Image style={{ height: 45, width: 45 }} source={require('../../assets/logo1.png')} />
+      </TouchableOpacity>
+    )
+  }
   return (
     <View style={styles.container}>
       <View style={{ backgroundColor: '#2874F0', paddingTop: Platform.OS === 'ios' ? 50 : 40 }}>
@@ -18,25 +57,12 @@ const NotificationScreen = () => {
       </View>
       {
         isLogIn ?
-          <TouchableOpacity style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 10, paddingHorizontal: 10, borderBottomWidth: 1, borderBottomColor: '#00000020' }}>
-            <View style={{ flexDirection: "row" }} >
-              <View style={{ height: 15, width: 15, backgroundColor: "blue", borderRadius: 50 }} />
-              <View style={{ width: "80%", marginLeft: 10 }}>
-                <Text style={{ fontWeight: "bold" }}>
-                  Atta. Rice ,Oil..Upto 50% off!
-                </Text>
-                <Text style={{ fontSize: 12, color: "#00000090" }}>
-                  No min.order value! Avail Free Shipping on {'\n'}
-                  order Value of min.$600! Shop Now
-                </Text>
-                <Text
-                  style={{ fontSize: 10, color: "#00000060", marginVertical: 10 ,}}
-                >2 days ago</Text>
-              </View>
-            </View>
-
-            <Image style={{ height: 45, width: 45 }} source={require('../../assets/logo1.png')} />
-          </TouchableOpacity>
+         <FlatList 
+         data={data}
+         keyExtractor={(item,index)=>index.toString()}
+         renderItem={renderItem}
+         
+         />
           
           :
           <View style={styles.contentSection}>

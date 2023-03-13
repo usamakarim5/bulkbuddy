@@ -66,7 +66,7 @@ const HorizontalMobile = () => {
   return (
     <View style={styles.container}>
       {/* <Spacer/> */}
-      <FlatList
+      {/* <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={data}
@@ -93,8 +93,35 @@ const HorizontalMobile = () => {
             </View>
           );
         }}
-      />
-      {/* <Spacer/> */}
+      /> */}
+      <View style={styles.card}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../../assets/images/Mobiles/MobileImages_1/IMG_1685.png')}
+            style={{
+              height: 130,
+              width: 130,
+              resizeMode: "contain",
+            }}
+          />
+          <Image
+            source={require('../../../assets/images/Mobiles/MobileImages_1/IMG_1686.png')}
+            style={{
+              height: 130,
+              width: 130,
+              resizeMode: "contain",
+            }}
+          />
+          <Image
+            source={require('../../../assets/images/Mobiles/MobileImages_1/IMG_1687.png')}
+            style={{
+              height: 130,
+              width: 130,
+              resizeMode: "contain",
+            }}
+          />
+        </View>
+      </View>
     </View>
   );
 };
@@ -102,28 +129,28 @@ const HorizontalMobile = () => {
 const styles = StyleSheet.create({
   container: {
     width: wp("100%"),
-    height: hp("25"),
-    backgroundColor: Colors.blue,
+    // height: hp("25"),
+    // backgroundColor: Colors.blue,
     // marginBottom: hp("4"),
-    alignSelf: "center",
+    // alignSelf: "center",
     // alignItems: "center",
     // marginTop: hp("3"),
   },
   card: {
     // height: hp("30"),
-    height: hp("20"),
-    width: wp("35"),
-    borderWidth: 0.5,
+    height: hp("15"),
+    // width: '10%',
+    // borderWidth: 0.5,
     borderRadius: hp("1"),
-    borderColor: Colors.fadedgray,
+    // borderColor: Colors.fadedgray,
     // backgroundColor:'red',
-    backgroundColor: Colors.white,
-    margin: hp("1"),
+    // backgroundColor: Colors.white,
+    // marginHorizontal: hp("1"),
     // alignItems: "center",
-    padding: hp("1"),
+    // padding: hp("1"),
   },
   listContainer: {
-    marginVertical: hp("1.5"),
+    // marginVertical: hp("1.5"),
     backgroundColor: "yellow",
     // height:130
   },
@@ -133,9 +160,11 @@ const styles = StyleSheet.create({
     lineHeight: 21,
   },
   imageContainer: {
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
     height: "60%",
     width: "100%",
+    flexDirection:"row",
+    justifyContent:"space-between"
   },
 });
 
