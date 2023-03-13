@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
         height:40
     },
     text:{
-        fontWeight:'900',
+        fontWeight:'600',
     }
 })

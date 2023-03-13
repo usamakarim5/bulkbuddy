@@ -16,8 +16,8 @@ import Feather from "react-native-vector-icons/Feather";
 const CategoryScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <View  style={styles.containerHeader}>
-        <Text  style={styles.headerTitle} >
+      <View style={styles.containerHeader}>
+        <Text style={styles.headerTitle} >
           All Categories
         </Text>
         <View style={styles.headerRightIcons}  >
@@ -30,7 +30,8 @@ const CategoryScreen = ({ navigation }) => {
           <Feather name="mic" size={20} color={"grey"} />
         </View>
       </View>
-      <View style={styles.row}>
+
+      <View style={[styles.row, { justifyContent: "space-between" }]}>
         <TouchableOpacity style={styles.rounded}
           onPress={() => navigation.navigate("Mobiles")}
         >
@@ -39,21 +40,96 @@ const CategoryScreen = ({ navigation }) => {
             source={require("../../assets/Category/IMG_2055.jpg")}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.rounded}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/Category/IMG_2057.jpg")}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.rounded}
-          onPress={() =>{}}
+
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("LaptopDesktop")}
         >
           <Image
             style={styles.image}
-            source={require("../../assets/Category/IMG_2057.jpg")}
+            source={require("../../assets/Category/Category_1/IMG_2472.png")}
           />
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("TabletsScreen")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2474.png")}
+
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.rounded}
+          onPress={() => navigation.navigate("SmartWearables")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2471.png")}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={[styles.row, { justifyContent: "space-between" }]}>
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("HeadPhones")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2473.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("CompPheripherals")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2475.png")}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("MobProtection")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2476.png")}
+
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.rounded}
+          onPress={() => navigation.navigate("PowerBanks")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2477.png")}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("DataStorage")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2478.png")}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.rounded}
+          onPress={() => navigation.navigate("HomeAudio")}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../assets/Category/Category_1/IMG_2479.png")}
+          />
+        </TouchableOpacity>
+
+
       </View>
     </SafeAreaView>
   );
@@ -64,18 +140,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  containerHeader:{
+  containerHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginHorizontal: wp("5"),
   },
-  headerTitle:{
+  headerTitle: {
     color: Colors.black,
     fontWeight: "500",
     fontSize: hp("2.2"),
   },
-  headerRightIcons:{
+  headerRightIcons: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -85,12 +161,10 @@ const styles = StyleSheet.create({
     borderColor: Colors.fadedgray,
   },
   rounded: {
-    margin: hp("1"),
+    // marginLeft:6,
   },
   row: {
     flexDirection: "row",
-    backgroundColor: Colors.white,
-    flex: 1,
     paddingTop: hp("1"),
   },
 });

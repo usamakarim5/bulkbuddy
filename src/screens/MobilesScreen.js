@@ -33,6 +33,17 @@ import SamsungList from "../components/Mobiles/SamsungList";
 import Grab from "../components/Mobiles/GrabList";
 import UpCommingLaunches from "../components/Mobiles/UpCommingLaunches";
 import BestSelling from "../components/Mobiles/BestSelling";
+import RealMeSeries from "../components/Mobiles/RealMeSeries";
+import PocoSeries from "../components/Mobiles/PocoSeries";
+import MotrolaSeries from "../components/Mobiles/MotrolaSeries";
+import RemiSeries from "../components/Mobiles/RemiSeries";
+import VivoSeries from "../components/Mobiles/VivoSeries";
+import IphoneSeries from "../components/Mobiles/IphoneSeries";
+import GoogleSeries from "../components/Mobiles/GoogleSeries";
+import OppoSeries from "../components/Mobiles/OppoSeries";
+import InfinixSeries from "../components/Mobiles/InfinixSeries";
+import MicromaxSeries from "../components/Mobiles/MicromaxSeries";
+import LavaSeries from "../components/Mobiles/LavaSeries";
 const Mobiles = ({ navigation }) => {
   const [isOn, setIsOn] = useState(false);
 
@@ -47,9 +58,21 @@ const Mobiles = ({ navigation }) => {
     { type: "UpCommingLaunches" },
     { type: "LatestLaunches1" },
     { type: "BestSelling" },
-    { type: "SamsungList" },
     { type: "image" },
     { type: "Grab" },
+    { type: "justLaunched" },
+    { type: "RealMeSeries" },
+    { type: "PocoSeries" },
+    { type: "SamsungSeries" },
+    { type: "MotrolaSeries" },
+    { type: "RedmiSeries" },
+    { type: "VivoSeries" },
+    { type: "Iphone" },
+    { type: "GoogleSeries" },
+    { type: "OppoSeries" },
+    { type: "InfinixSeries" },
+    { type: "MicromaxSeries" },
+    { type: "LavaSeries" },
   ];
 
   const renderMainItem = ({ item }) => {
@@ -69,7 +92,7 @@ const Mobiles = ({ navigation }) => {
     }
     if (item.type === "HorizontalList") {
       return (
-        <View style={[styles.list]}>
+        <View style={{}}>
           <HorizontalMobile />
         </View>
       );
@@ -81,7 +104,6 @@ const Mobiles = ({ navigation }) => {
             titleImage={require('../../assets/images/Mobiles/MobileImages_1/IMG_1688.png')}
             FirstLargeImage={require('../../assets/images/Mobiles/MobileImages_1/IMG_1689.png')}
             largeImageHeight={180}
-
             card1={require('../../assets/images/Mobiles/MobileImages_1/IMG_1690.png')}
             card2={require('../../assets/images/Mobiles/MobileImages_1/IMG_1691.png')}
             launchedImages={true}
@@ -92,7 +114,9 @@ const Mobiles = ({ navigation }) => {
     if (item.type === "UpCommingLaunches") {
       return (
         <View style={styles.list}>
-          <UpCommingLaunches />
+          <UpCommingLaunches 
+            titleImg={require('../../assets/images/Mobiles/MobileImages_2/IMG_1701.png')}
+          />
         </View>
       );
     }
@@ -101,16 +125,16 @@ const Mobiles = ({ navigation }) => {
       return (
         <View style={styles.list}>
           <Launches
-            titleImage ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1703.png') }
-            FirstLargeImage ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1704.png') }
-            largeImageHeight={300}
-            card1 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1705.png') }
-            card2 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1706.png') }
+            titleImage={require('../../assets/images/Mobiles/MobileImages_2/IMG_1703.png')}
+            FirstLargeImage={require('../../assets/images/Mobiles/MobileImages_2/IMG_1704.png')}
+            largeImageHeight={280}
+            card1={require('../../assets/images/Mobiles/MobileImages_2/IMG_1705.png')}
+            card2={require('../../assets/images/Mobiles/MobileImages_2/IMG_1706.png')}
+            largeImageExtra1={require('../../assets/images/Mobiles/MobileImages_2/IMG_1707.png')}
+            largeImageExtra2={require('../../assets/images/Mobiles/MobileImages_2/IMG_1708.png')}
+            cardExtra1={require('../../assets/images/Mobiles/MobileImages_2/IMG_1709.png')}
+            cardExtra2={require('../../assets/images/Mobiles/MobileImages_2/IMG_1710.png')}
             launchedImages1={true}
-            largeImageExtra1={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1707.png') } 
-            largeImageExtra2={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1708.png') }
-            cardExtra1 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1709.png') }
-            cardExtra2 ={ require('../../assets/images/Mobiles/MobileImages_2/IMG_1710.png') }
           />
         </View>
       );
@@ -120,17 +144,180 @@ const Mobiles = ({ navigation }) => {
     if (item.type === "BestSelling") {
       return (
         <View style={styles.list}>
-          <BestSelling/>
+          <BestSelling
+            titleImg={require('../../assets/images/Mobiles/MobileImages_2/IMG_1711.png')}
+            showBestSelling={true}
+
+          />
         </View>
       );
     }
-    // if (item.type === "Grab") {
-    //   return (
-    //     <View style={styles.list}>
-    //       <Grab />
-    //     </View>
-    //   );
-    // }
+    if (item.type === "Grab") {
+      return (
+        <View style={styles.list}>
+          {/* For Grab data we used BestSelling comp bcoz LookWise both are same */}
+          <BestSelling
+            titleImg={require('../../assets/images/Mobiles/MobileImages_2/IMG_1716.png')}
+            showGrabData={true}
+          />
+        </View>
+      );
+    }
+
+
+    if (item.type === "justLaunched") {
+      return (
+        <View style={styles.list}>
+          {/* For Grab data we used UpCommingLaunches comp bcoz LookWise both are same */}
+          {/* we used swiperComp here with boolean*/}
+          <UpCommingLaunches
+            titleImg={require('../../assets/images/Mobiles/MobileImages_3/IMG_1722.png')}
+            showSlider={true}
+          />
+        </View>
+      );
+    }
+
+    if (item.type === "RealMeSeries") {
+      return (
+        <View style={styles.list}>
+         <RealMeSeries
+            realMeDesign={require('../../assets/images/Mobiles/MobileImages_3/IMG_1728.png')}
+            titleImg={require('../../assets/images/Mobiles/MobileImages_3/IMG_1729.png')}
+         
+         />
+        </View>
+      );
+    }
+
+    if (item.type === "PocoSeries") {
+      return (
+        <View style={styles.list}>
+         <PocoSeries
+            pocoDesign={require('../../assets/images/Mobiles/MobileImages_4/IMG_1744.png')}
+            // titleImg={require('../../assets/images/Mobiles/MobileImages_3/IMG_1729.png')}
+         
+         />
+        </View>
+      );
+    }
+
+
+    if (item.type === "SamsungSeries") {
+      return (
+        <View style={styles.list}>
+         <SamsungList
+            samsungDesign={require('../../assets/images/Mobiles/MobileImages_4/IMG_1749.png')}
+            // titleImg={require('../../assets/images/Mobiles/MobileImages_3/IMG_1729.png')}
+         
+         />
+        </View>
+      );
+    }  
+    
+    if (item.type === "MotrolaSeries") {
+      return (
+        <View style={styles.list}>
+         <MotrolaSeries
+            motrolaDesign={require('../../assets/images/Mobiles/MobileImages_4/IMG_1759.png')}
+            // titleImg={require('../../assets/images/Mobiles/MobileImages_3/IMG_1729.png')}
+         
+         />
+        </View>
+      );
+    }   
+    
+    if (item.type === "RedmiSeries") {
+      return (
+        <View style={styles.list}>
+         <RemiSeries
+            redmiDesign={require('../../assets/images/Mobiles/MobileImages_5/IMG_1775.png')}
+         
+         />
+        </View>
+      );
+    }
+
+
+    if (item.type === "VivoSeries") {
+      return (
+        <View style={styles.list}>
+         <VivoSeries
+            vivoDesign={require('../../assets/images/Mobiles/MobileImages_5/IMG_1789.png')}
+         
+         />
+        </View>
+      );
+    }   
+    
+    if (item.type === "Iphone") {
+      return (
+        <View style={styles.list}>
+         <IphoneSeries
+            iphoneDesign={require('../../assets/images/Mobiles/MobileImages_6/IMG_1796.png')}
+         />
+        </View>
+      );
+    }  
+    
+    if (item.type === "GoogleSeries") {
+      return (
+        <View style={styles.list}>
+         <GoogleSeries
+            googleDesign={require('../../assets/images/Mobiles/MobileImages_6/IMG_1805.png')}
+         />
+        </View>
+      );
+    }
+    
+    if (item.type === "OppoSeries") {
+      return (
+        <View style={styles.list}>
+         <OppoSeries
+           oppoDesign={require('../../assets/images/Mobiles/MobileImages_6/IMG_1809.png')}
+           titleImg={require('../../assets/images/Mobiles/MobileImages_6/IMG_1810.png')}
+         />
+        </View>
+      );
+    }
+
+
+    if (item.type === "InfinixSeries") {
+      return (
+        <View style={styles.list}>
+         <InfinixSeries
+           infinixDesign={require('../../assets/images/Mobiles/MobileImages_7/IMG_1825.png')}
+         />
+        </View>
+      );
+    }  
+    
+    if (item.type === "MicromaxSeries") {
+      return (
+        <View style={styles.list}>
+         <MicromaxSeries
+           micromaxDesign={require('../../assets/images/Mobiles/MobileImages_7/IMG_1840.png')}
+         />
+        </View>
+      );
+    } 
+    
+    if (item.type === "LavaSeries") {
+      return (
+        <View style={styles.list}>
+         <LavaSeries
+           lavaDesign={require('../../assets/images/Mobiles/MobileImages_8/IMG_1843.png')}
+         />
+        </View>
+      );
+    }
+
+
+
+
+
+
+
     if (item.type === "TopPicks") {
       return (
         <View style={styles.list}>
@@ -161,14 +348,22 @@ const Mobiles = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={()=>navigation.goBack()}>
+          <AntDesign name="arrowleft" size={20}  />
+        </TouchableOpacity>
+        <Text style={{fontSize:18}}>Mobile</Text>
+      </View>
       <Spacer />
-      <FlatList
+   <View style={{backgroundColor:"#fff"}}>
+   <FlatList
         data={data}
         keyExtractor={keyExtractor}
         renderItem={renderMainItem}
         nestedScrollEnabled={true}
         showsVerticalScrollIndicator={false}
       />
+   </View>
     </SafeAreaView>
   );
 };
@@ -177,36 +372,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     backgroundColor: Colors.white,
   },
+  header:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    width:"60%",
+    paddingHorizontal:10,
+    paddingTop:40
+  
+  },
   mainItem: {
-    // height: 80,
     justifyContent: "center",
     alignItems: "center",
-    // margin: 10,
     backgroundColor: "yellow",
   },
   horizontalItem: {
     width: wp("100%"),
-    // height:'50%',
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: hp('2'),
     backgroundColor: "blue",
   },
   list: {
-    // height: hp('14'),
-    // margin: hp("1%"),
-    // backgroundColor: "red",
-    // marginBottom: "20%",
-    // backgroundColor:"red"
+ 
   },
   swiper: {
     height: hp("20"),
-    // margin: 5,
-    // backgroundColor: "red",
-    marginBottom: hp("10%"),
+   
+    marginBottom: hp("1%"),
     alignSelf: "flex-start",
   },
 
@@ -214,12 +408,10 @@ const styles = StyleSheet.create({
     fontSize: hp("5%"),
     alignSelf: "center",
     marginHorizontal: 10,
-    // backgroundColor:'pink'
   },
   mall: {
     fontWeight: "400",
-    // backgroundColor: "red",
-    // marginTop: 10,
+  
   },
 
   image: {
@@ -228,12 +420,6 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // alignItems: "flex-start",
-    // paddingVertical: 15,
-    // backgroundColor:'red',
-    // width: "90%",
   },
   logo: {
     color: Colors.black,
@@ -249,16 +435,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: 15,
     flexDirection: "row",
-    // marginTop: 15,
     width: "75%",
     alignItems: "center",
     borderColor: "black",
     borderWidth: 0.3,
   },
   input: {
-    // borderColor: "black",
     flex: 1,
-    // borderWidth: 0.3,
     fontSize: 18,
     padding: 10,
   },

@@ -25,6 +25,15 @@ import Wishlist from "../screens/WishlistScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Search from "../screens/SearchScreen";
 import Mobiles from "../screens/MobilesScreen";
+import CompPheripherals from '../screens/Categories/CompPheripherals'
+import DataStorage from '../screens/Categories/DataStorage'
+import HeadPhones from '../screens/Categories/HeadPhones'
+import HomeAudio from '../screens/Categories/HomeAudio'
+import MobProtection from '../screens/Categories/MobProtection'
+import TabletsScreen from '../screens/Categories/TabletsScreen'
+import SmartWearables from '../screens/Categories/SmartWearables'
+import LaptopDesktop from '../screens/Categories/LaptopDesktop'
+import PowerBanks from '../screens/Categories/PowerBanks'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -107,22 +116,6 @@ const MainStack = () => {
         
       ) : ( */}
       <Stack.Navigator>
-        {/* <Stack.Screen
-            options={{ headerShown: false }}
-            name="LoadingScreen"
-            component={LoadingScreen}
-          />  */}
-        {/* <Stack.Screen
-            options={{ headerShown: false }}
-            name="SignUp"
-            component={SignUpScreen}
-          />
-          <Stack.Screen
-            options={{ headerShown: false }}
-            name="SignIn"
-            component={SigninScreen}
-          />  */}
-
         <Stack.Screen
           name="Back"
           component={BottomTab}
@@ -174,8 +167,53 @@ const MainStack = () => {
           component={Mobiles}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="DataStorage"
+          component={DataStorage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CompPheripherals"
+          component={CompPheripherals}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HeadPhones"
+          component={HeadPhones}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HomeAudio"
+          component={HomeAudio}
+          options={{ headerShown: false }}
+        /> 
+        <Stack.Screen
+          name="LaptopDesktop"
+          component={LaptopDesktop}
+          options={{ headerShown: false }}
+        /> 
+        <Stack.Screen
+          name="MobProtection"
+          component={MobProtection}
+          options={{ headerShown: false }}
+        />  
+        
+         <Stack.Screen
+          name="PowerBanks"
+          component={PowerBanks}
+          options={{ headerShown: false }}
+        /> 
+        <Stack.Screen
+          name="SmartWearables"
+          component={SmartWearables}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TabletsScreen"
+          component={TabletsScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
-      {/* )}  */}
     </NavigationContainer>
   );
 };

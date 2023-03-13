@@ -70,7 +70,7 @@ const Orders = ({ navigation }) => {
         style={{
           height: 1,
           width: "100%",
-          backgroundColor: Colors.fadedgray,
+          backgroundColor: '',
         }}
       />
     );
@@ -127,7 +127,7 @@ const Orders = ({ navigation }) => {
       {/******************************* M O D A L *********************************/}
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.background}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView]}>
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
@@ -138,7 +138,7 @@ const Orders = ({ navigation }) => {
             <Text style={styles.text}>Order Status</Text>
             <View>
               <View style={styles.row}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={[styles.button,{}]}>
                   <Text>On the way</Text>
                   <AntDesign
                     name="plus"
@@ -236,13 +236,13 @@ const Orders = ({ navigation }) => {
             <Spacer />
             <View style={styles.row}>
               <Pressable
-                style={styles.button}
+              style={[styles.button,{borderRadius:0,padding:10}]}
                 onPress={() => setModalVisible(!modalVisible)}
               >
-                <Text style={styles.buttonText}>Cancel</Text>
+                <Text style={[styles.buttonText,{color:"blue"}]}>Cancel</Text>
               </Pressable>
-              <Pressable style={styles.button}>
-                <Text style={styles.buttonText}>Apply</Text>
+              <Pressable style={[styles.button,{borderRadius:0,padding:10,backgroundColor:"orange"}]}>
+                <Text style={[styles.buttonText,{color:"#fff"}]}>Apply</Text>
               </Pressable>
             </View>
           </View>
@@ -281,8 +281,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   modalView: {
-    height: hp("70%"),
-    width: wp("95%"),
+    height: hp("60%"),
     backgroundColor: "white",
     borderRadius: 10,
     padding: hp("2"),
@@ -299,21 +298,21 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
   button: {
     // backgroundColor: Colors.background,
     // backgroundColor: "red",
-    padding: hp("1"),
-    width: wp("40%"),
-    borderWidth: 0.5,
-    borderColor: Colors.fadedgray,
-    margin: hp("1.5"),
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 5,
+    padding: 6,
+    width: wp("40%"),
+    borderWidth: 0.5,
+    borderColor: Colors.fadedgray,
+    margin: 10,
+    borderRadius: 30,
   },
   buttonText: {
     fontSize: hp("2"),
@@ -328,7 +327,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "yellow",
   },
   bar: {
-    backgroundColor: "#F0EEEE",
+    // backgroundColor: "#F0EEEE",
     // backgroundColor: "pink",
     height: hp("5"),
     borderRadius: 3,
@@ -340,6 +339,7 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 0.3,
     // padding: 10,
+    height:40
   },
   input: {
     // borderColor: "black",

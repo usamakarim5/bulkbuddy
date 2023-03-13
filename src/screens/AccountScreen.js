@@ -16,7 +16,7 @@ import Divider from "../components/Divider";
 const AccountScreen = ({ navigation }) => {
   // const { signout } = useContext(AuthContext);
   const size = 20;
-  const color = Colors.black;
+  const color = 'blue';
 
   return (
     <SafeAreaView>
@@ -41,7 +41,7 @@ const AccountScreen = ({ navigation }) => {
             style={[styles.button]}
             onPress={() => navigation.navigate("Orders")}
           >
-            <Feather name="box" size={size} color={color} style={styles.icon} />
+            <Feather name="box" size={size} color={'blue'} style={styles.icon} />
             <Text style={styles.buttonText}>Orders</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -51,20 +51,20 @@ const AccountScreen = ({ navigation }) => {
             <AntDesign
               name="hearto"
               size={size}
-              color={color}
+              color={'blue'}
               style={styles.icon}
             />
             <Text style={styles.buttonText}>Wishlist</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={[styles.button, { width: "95%" }]}
+          style={[styles.button, { width: "96%" }]}
           onPress={() => navigation.navigate("Coupons")}
         >
           <AntDesign
             name="gift"
             size={size}
-            color={color}
+            color={'blue'}
             style={styles.icon}
           />
           <Text style={styles.buttonText}>Coupons</Text>
@@ -159,12 +159,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   button: {
-    backgroundColor: Colors.background,
+    // backgroundColor: Colors.background,
     padding: 10,
-    width: "45%",
+    width: "44%",
     borderWidth: 0.5,
     borderColor: Colors.fadedgray,
-    margin: 10,
+    margin: 8,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",

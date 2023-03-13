@@ -136,14 +136,14 @@ const MobileList = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return (
-            <View style={{ height: hp("20") }}>
+            <View style={{  }}>
               <View style={styles.card}>
-                <TouchableOpacity style={{marginRight:10}}>
+                <TouchableOpacity style={{}}>
                   <Image
                     source={item.imgPath }
                     style={{
                       height: 100,
-                      width: 100,
+                      width: 70,
                       borderRadius: 50,
                       resizeMode: "center",
                     }}
@@ -151,11 +151,11 @@ const MobileList = () => {
                 </TouchableOpacity>
                 <View
                   style={{
-                    alignItems: "center",
-                    margin: hp("1"),
+                    // alignItems: "center",
+                    // margin: hp("1"),
                     // backgroundColor: "red",
-                    width: wp("20"),
-                    alignSelf: "center",
+                    // width: wp("20"),
+                    // alignSelf: "center",
                   }}
                 >
                   {/* <Text>{item.text}</Text> */}
@@ -173,12 +173,12 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 50,
     // margin: wp("1"),
-    marginRight:20,
+    // marginRight:20,
     // backgroundColor: 'black',
-    width: wp("15"),
-    height: hp("7"),
-    borderColor: Colors.white,
-    borderWidth: 1,
+    // width: wp("15"),
+    // height: hp("7"),
+    // borderColor: Colors.white,
+    // borderWidth: 1,
     // alignItems:'center'
   },
   imageContainer: {

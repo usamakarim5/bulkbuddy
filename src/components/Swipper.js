@@ -7,23 +7,41 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-const imageList = [
-  {
-    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1682.png"),
-  }, 
-   {
-    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1683.png"),
-  }, 
-   {
-    srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1684.png"),
-  },
- 
-  // add more images as needed
-];
 
-
-const MySwiper = () => {
-
+const MySwiper = ({showSlider}) => {
+  
+  const imageList = [
+    {
+      srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1682.png"),
+    }, 
+     {
+      srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1683.png"),
+    }, 
+     {
+      srcc: require("../../assets/images/Mobiles/MobileImages_1/IMG_1684.png"),
+    },
+   
+    // add more images as needed
+  ];
+  
+  
+  const justLaunchedImagesList = [
+    {
+      srcc: require("../../assets/images/Mobiles/MobileImages_3/IMG_1723.png"),
+    }, 
+     {
+      srcc: require("../../assets/images/Mobiles/MobileImages_3/IMG_1724.png"),
+    }, 
+     {
+      srcc: require("../../assets/images/Mobiles/MobileImages_3/IMG_1725.png"),
+    }, 
+     {
+      srcc: require("../../assets/images/Mobiles/MobileImages_3/IMG_1726.png"),
+    },
+  ];
+  
+  // Here we used this for justLaunched section as well as header swiper
+  const data = showSlider ? justLaunchedImagesList : imageList
  
   return (
     <View style={styles.container}>
@@ -37,7 +55,7 @@ const MySwiper = () => {
         dot={<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 15, height: 5,borderRadius: 4, marginLeft: 10, marginBottom: -13}} />}
         activeDot={<View style={{backgroundColor: '#fff', width: 15, height: 5, borderRadius: 4, marginLeft: 10, marginRight: 3, marginBottom: -13,}} />}
       >
-        {imageList.map((item, index) => (
+        {data.map((item, index) => (
           <View key={index}>
             <Image
               source={item.srcc}
